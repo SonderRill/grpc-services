@@ -14,7 +14,7 @@ export class ProductController {
   @Inject(NewsService)
   private readonly _newService: NewsService
 
-  // @Roles(Role.ADMIN)
+  @Roles(Role.ADMIN)
   @UseGuards(AuthGuard, RolesGuard)
   @Post()
   create(@Body() createNews: CreateNewsRequestDto, @HttpUser() user: User): Promise<NewsEntity> {
